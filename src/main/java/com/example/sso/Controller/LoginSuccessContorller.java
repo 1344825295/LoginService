@@ -24,6 +24,13 @@ public class LoginSuccessContorller {
     Map<String, Object> tokenMap = new HashMap<>();
 
     //跳转统一登陆页面
+    @ResponseBody
+    @RequestMapping("/test")
+    public String test() {
+        return "loginView/login";
+    }
+
+    //跳转统一登陆页面
     @RequestMapping("/loginPage")
     public String loginPage(String callback, String uuid, HttpServletResponse response) {
         //将回调地址 客户端标识放在cookies里面

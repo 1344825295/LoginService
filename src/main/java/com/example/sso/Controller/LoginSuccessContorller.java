@@ -41,8 +41,8 @@ public class LoginSuccessContorller {
         String uuid = CookieUtil.getCookie(request, "uuid");
         //创建ticket
         String token = DigestUtils.md5DigestAsHex((EncryptUtil.SALT + uuid + System.currentTimeMillis()).getBytes());
-//        //存redis,测试60秒过期
-//        redisTemplate.opsForValue().set(AppConstant.REDIS_TICKET_PREFIX + ticket, userName, AppConstant.REDIS_TICKET_ALIVE_SECONDS, TimeUnit.SECONDS);
+        //存redis,测试60秒过期
+        //暂时使用map来测试 后面还用redis缓存
         tokenMap.put(uuid, token);
         //回源url
         String originalUrl = CookieUtil.getCookie(request, "callback") + "?token=" + token;
